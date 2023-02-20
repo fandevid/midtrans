@@ -1,33 +1,33 @@
 import midtransClient from "midtrans-client";
 
 const checkout = () => {
+  //   const midtransClient = require("midtrans-client");
+  // Create Snap API instance
   let snap = new midtransClient.Snap({
-    // Set to true if you want Production Environment (accept real transaction).
     isProduction: false,
-    serverKey: process.env.MIDTRANS_SERVER_KEY,
+    clientKey: "Mid-client-te1kB6Thrh7Mmbnu",
+    serverKey: "Mid-server-pRP89888xUbmHxTtScJd4AaO",
+  });
+
+  let parameter = {
+    transaction_details: {
+      order_id: "test-transaction-123",
+      gross_amount: 200000,
+    },
+    credit_card: {
+      secure: true,
+    },
+  };
+
+  snap.createTransaction(parameter).then((transaction) => {
+    // transaction token
+    console.log(transaction);
+    let transactionToken = transaction.token;
+    console.log("transactionToken:", transactionToken);
   });
 
   function buatPesanan(e) {
-    let parameter = {
-      transaction_details: {
-        order_id: "YOUR-ORDERID-123456",
-        gross_amount: 106000,
-      },
-      credit_card: {
-        secure: true,
-      },
-      customer_details: {
-        first_name: "budi",
-        last_name: "pratama",
-        email: "budi.pra@example.com",
-        phone: "08111222333",
-      },
-    };
-    snap.createTransaction(parameter).then((transaction) => {
-      // transaction token
-      let transactionToken = transaction.token;
-      alert("transactionToken:", transactionToken);
-    });
+    alert("Buat Pesanan");
   }
   return (
     <div>
