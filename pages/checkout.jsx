@@ -5,8 +5,8 @@ const checkout = () => {
   // Create Snap API instance
   let snap = new midtransClient.Snap({
     isProduction: false,
-    clientKey: "Mid-client-te1kB6Thrh7Mmbnu",
-    serverKey: "Mid-server-pRP89888xUbmHxTtScJd4AaO",
+    clientKey: "SB-Mid-client-NkjrkemgHGwWQ-M1",
+    serverKey: "SB-Mid-server-mXb_D8mFlPQNihU74XM4oRjf",
   });
 
   let parameter = {
